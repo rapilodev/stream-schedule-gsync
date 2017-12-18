@@ -1,0 +1,30 @@
+Source: stream-schedule-gsync
+Section: perl
+Priority: optional
+Maintainer: Milan Chrobok <mc@radiopiloten.de>
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl, libmodule-install-perl
+Standards-Version: 3.9.3
+Homepage: https://launchpad.net/~mc-1/+archive/stream-schedule
+
+Package: stream-schedule-gsync
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends},
+ libjson-webtoken-perl,
+ libconfig-general-perl,
+ libdate-calc-perl,
+ libdatetime-format-iso8601-perl,
+ libdatetime-perl,
+ libfile-basedir-perl,
+ libfile-path-perl,
+ libhtml-parser-perl,
+ libgetopt-long-descriptive-perl,
+ libjson-perl,
+ libtime-hires-perl,
+ libwww-perl,
+ libfile-finder-perl,
+ libfile-spec-perl,
+ libhtml-entities-numbered-perl,
+ liburi-escape-xs-perl
+Description: stream schedule sync with google calendar
+

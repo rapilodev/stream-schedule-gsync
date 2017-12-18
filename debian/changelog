@@ -1,0 +1,12 @@
+stream-schedule-gsync (0.01.0009) trusty; urgency=low
+  * add --output
+ -- Milan Chrobok <mc@radiopiloten.de>  Sat, 06 Mar 2016 12:04:09 +0200
+
+stream-schedule-gsync (0.01.0005) precise; urgency=low
+  * add --output
+ -- Milan Chrobok <mc@radiopiloten.de>  Sun, 28 Feb 2016 12:04:09 +0200
+
+stream-schedule-gsync (0.01.0003) precise; urgency=low
+  * initial release
+ -- Milan Chrobok <mc@radiopiloten.de>  Sat, 27 Feb 2016 12:04:09 +0200
+

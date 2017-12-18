@@ -1,0 +1,9 @@
+#! /bin/sh
+
+if [ "$1" = "purge" ] ; then
+    if [ -e /etc/stream-schedule/gsync/gsync.conf ]; then
+        rm /etc/stream-schedule/gsync/gsync.conf
+    fi
+fi
+
+exit 0;
