@@ -1,3 +1,11 @@
+stream-schedule-gsync (0.02.01) focal; urgency=low
+  * update debian files
+ -- Milan Chrobok <mc@radiopiloten.de>  Sun, 09 May 2021 12:04:09 +0200
+
+stream-schedule-gsync (0.01.0010) xenial; urgency=low
+  * move to xenial
+ -- Milan Chrobok <mc@radiopiloten.de>  Sat, 21 Apr 2018 12:04:09 +0200
+
 stream-schedule-gsync (0.01.0009) trusty; urgency=low
   * add --output
  -- Milan Chrobok <mc@radiopiloten.de>  Sat, 06 Mar 2016 12:04:09 +0200
