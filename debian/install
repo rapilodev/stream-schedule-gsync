@@ -1,5 +1,5 @@
 etc/stream-schedule/gsync/gsync.conf etc/etc/stream-schedule/gsync/
-etc/stream-schedule/gsync/serviceAccount.conf etc/etc/stream-schedule/gsync/
+etc/stream-schedule/gsync/serviceAccount.key etc/etc/stream-schedule/gsync/
 lib/StreamSchedule/GoogleCalendarApi.pm usr/share/perl5/StreamSchedule/
 lib/StreamSchedule/GoogleCalendarImport.pm usr/share/perl5/StreamSchedule/
 lib/StreamSchedule/Log.pm usr/share/perl5/StreamSchedule/
