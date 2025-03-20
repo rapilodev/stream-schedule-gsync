@@ -5,6 +5,6 @@ lib/StreamSchedule/GoogleCalendarImport.pm usr/share/perl5/StreamSchedule/
 lib/StreamSchedule/Log.pm usr/share/perl5/StreamSchedule/
 lib/StreamSchedule/SchedulerExport.pm usr/share/perl5/StreamSchedule/
 lib/StreamSchedule/Time.pm usr/share/perl5/StreamSchedule/
-script/streamScheduleSync.pl usr/bin/streamScheduleSync.pl
+script/streamScheduleSync.pl usr/bin/
 
 

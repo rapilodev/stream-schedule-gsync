@@ -1,4 +1,4 @@
-stream-schedule-gsync (0.02.01) focal; urgency=low
+stream-schedule-gsync (0.02.02) focal; urgency=low
   * update debian files
  -- Milan Chrobok <mc@radiopiloten.de>  Sun, 09 May 2021 12:04:09 +0200
 
