@@ -14,9 +14,7 @@ use DateTime;
 use StreamSchedule::Log qw(printInfo printExit);
 
 sub new {
-    my $class  = shift;
-    my $params = shift;
-
+    my ($class, $params) = @_;
     my $self = {};
     for my $attr ( 'calendarId', 'verbose' ) {
         $self->{$attr} = $params->{$attr} if defined $params->{$attr};
@@ -28,13 +26,11 @@ sub new {
     {
         $instance->login( $params->{serviceAccount}, $params->{privateKey} );
     }
-
     return $instance;
 }
 
 sub setCalendar {
-    my $self       = shift;
-    my $calendarId = shift;
+    my ($self, $calendarId) = @_;
     $self->{calendarId} = $calendarId;
 }
 
@@ -66,11 +62,11 @@ sub getEvents {
         'orderBy',                'pageToken',          'privateExtendedProperty', 'q',
         'sharedExtendedProperty', 'showDeleted',        'showHiddenInvitations',   'singleEvents',
         'syncToken',              'timeZone'
-      )
-    {
+    ) {
         $url .= '&' . $param . '=' . uri_escape( $params->{$param} )
           if defined $params->{$param};
     }
+    
     for my $param ( 'timeMin', 'timeMax', 'updatedMin' ) {
         $url .= '&' . $param . '=' . uri_escape( $self->formatDateTime( $params->{$param} ) )
           if defined $params->{$param};
@@ -82,8 +78,7 @@ sub getEvents {
 
 #https://developers.google.com/google-apps/calendar/v3/reference/events/delete
 sub deleteEvent {
-    my $self    = shift;
-    my $eventId = shift;
+    my ($self, $eventId) = @_;
     my $url     = '/events/' . $eventId;
 
     #DELETE https://www.googleapis.com/calendar/v3/calendars/calendarId/events/eventId
@@ -93,9 +88,7 @@ sub deleteEvent {
 
 #https://developers.google.com/google-apps/calendar/v3/reference/events/insert
 sub insertEvent {
-    my $self   = shift;
-    my $params = shift;
-
+    my ($self, $params) = @_;
     my $event = {
         start => { dateTime => $self->formatDateTime( $params->{start} ) },
         end   => { dateTime => $self->formatDateTime( $params->{end} ) },
@@ -114,11 +107,7 @@ sub insertEvent {
 
 # send a HTTP request
 sub httpRequest {
-    my $self    = shift;
-    my $method  = shift;
-    my $url     = shift;
-    my $content = shift || '';
-
+    my ($self, $method, $url, $content) = @_;
     printInfo( "$method " . $url ) if $self->{verbose};
 
     die("missing url")        unless defined $url;
@@ -157,9 +146,7 @@ sub httpRequest {
 
 # write datetime object to string
 sub formatDateTime {
-    my $self = shift;
-    my $dt   = shift;
-
+    my ($self, $dt) = @_;
     my $datetime = $dt->format_cldr("yyyy-MM-ddTHH:mm:ssZZZZZ");
     return $datetime;
 }
@@ -167,11 +154,9 @@ sub formatDateTime {
 # parse datetime from string to object
 # same as in time, copied to prevent dependency
 sub getDateTime {
-    my $self     = shift;
-    my $datetime = shift;
-    my $timezone = shift;
-
-    return if ( ( !defined $datetime ) or ( $datetime eq '' ) );
+    my ($self, $dt) = @_;
+    my ($self, $datetime, $timezone) = @_;
+    return unless $datetime;
     my @l = split /[\-\;T\s\:\+\.]/, $datetime;
 
     $datetime = DateTime->new(
@@ -188,10 +173,7 @@ sub getDateTime {
 
 # login with serviceAccount and webToken (from privateKey)
 sub login {
-    my $self           = shift;
-    my $serviceAccount = shift;
-    my $privateKey     = shift;
-
+    my ($self, $serviceAccount, $privateKey) = @_;
     # https://developers.google.com/accounts/docs/OAuth2ServiceAccount
     my $time = time;
 
